@@ -373,7 +373,10 @@ try:
         except TimeoutException:
             print("Next page link not found after waiting. The last page may have been reached.")
             next_link = None
-        next_link.click()
+        if next_link is not None:
+            next_link.click()
+        else:
+            print("next_link is None")
 
 
         page+=1
